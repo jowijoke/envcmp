@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+
+<ui:composition>
+
+    <div class="container" ng-app="EnvCom" ng-controller="EnvComController as ctrl">
+        <div class="row m-t">
+           <button class="btn btn-danger pull-right" ng-click="ctrl.getAllObjs()">Compare All</button>
+        </div>
+        <div class="row m-t">
+            <div class="panel">
+                <div class="panel-heading bg-light lter">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="panel-title"><b>EnvCom</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form>
+                                <div class="form-group">
+                                    <label for="ObjectType">Object Type</label>
+                                    <input type="text" class="form-control" id="objectType" placeholder="Object types" ng-model="ctrl.name" />
+                                
+                                <div class="dropdown">
+                                
+                               
+
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+
+    <span class="caret"></span>
+
+  </button>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Application</a></li>
+
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">WorkGroup</a></li>
+
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">TaskDefinition (Reports)</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Capability</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CorrelationConfig</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Bundle</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Custom</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">ObjectConfig</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Policy</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Rule</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">UIConfig</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">WorkFlow</a></li>
+    
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">IdentityTrigger (lifeCycle Event)</a></li>
+
+    <li role="presentation" class="divider"></li>
+
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All objects</a></li>
+
+  </ul>
+
+</div>
+                                
+                                </div>
+                                 <button type="submit" class="btn btn-info pull-right" ng-click="ctrl.listObjClean()">Compare</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="#{plugins.requestContextPath}/plugin/EnvCom/ui/js/angular.min.js"></script>
+    <script src="#{plugins.requestContextPath}/plugin/EnvCom/ui/js/ui-bootstrap.min.js"></script>
+    <script src="#{plugins.requestContextPath}/plugin/EnvCom/ui/js/app.js"></script>
+
+</ui:composition>
+
+</body>
+</html>
+

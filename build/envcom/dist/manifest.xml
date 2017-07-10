@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Plugin certificationLevel="None" displayName="EnvCom" minSystemVersion="7.1" name="EnvCom" version="0.1">
+  <Attributes>
+    <Map>
+      <entry key="minUpgradableVersion" value="0.1" />
+      <entry key="fullPage">
+        <value>
+          <FullPage title="EnvCom" />
+        </value>
+      </entry>
+      <entry key="restResources">
+        <value>
+          <List>
+          	<String>com.onaware.rest.ObjectResource</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="serviceExecutors">
+      </entry>
+      <entry key="settings">
+      <value>
+          <List>
+			<Setting dataType="string" helpText="Export file location " label="Export File location" name="exportLocation"/>          
+            <Setting dataType="string" helpText="The default Username for both test and control IIQ instances" label="Default Username" name="controlUsername" defaultValue="spadmin"/>
+            <Setting dataType="string" helpText="The default password for both test and the control IIQ instance" label="Default Password" name="controlPassword" defaultValue="admin"/>
+            <Setting dataType="string" helpText="The default URL for the control IIQ instance" label="Control URL" name="controlUrl" defaultValue="http://localhost"/>
+            <Setting dataType="string" helpText="The default URL for the test IIQ instance" label="Test URL" name="testUrl" defaultValue="http://localhost"/>
+          </List>
+        </value>      
+      </entry>
+      <entry key="snippets">
+        <value>
+          <List>
+            <Snippet regexPattern=".*" rightRequired="ViewEnvComIcon">
+              <Scripts>
+                <String>ui/js/snippets/header.js</String>
+              </Scripts>
+              <StyleSheets>
+                <String>ui/css/envcom.css</String>
+              </StyleSheets>
+            </Snippet>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</Plugin>
+

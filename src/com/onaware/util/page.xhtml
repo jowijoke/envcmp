@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+
+	<ui:composition>
+
+		<div class="container" ng-app="EnvCom"
+			ng-controller="EnvComController as ctrl">
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading bg-light lter">
+						<div class="row">
+							<div class="col-xs-12">
+								<span class="panel-title"><b>EnvCom</b></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="column panel-body">
+					<div class="loader" ng-show="loader.loading"></div>
+						<div class="col-md-6">
+							<div class="row">
+
+								<form>
+									<div class="form-group">
+
+										<div id="objectCheckboxList">
+											<div ng-repeat="obj in objectList">
+												<div class="action-checkbox">
+													<input id="{{obj.value}}" type="checkbox"
+														value="{{obj.value}}"
+														ng-checked="selection.indexOf(obj.value) > -1"
+														ng-click="toggleSelection(obj.value)" /> <label
+														for="{{obj.name}}"> </label> {{obj.name}}
+												</div>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-info pull-left"
+											ng-click="ctrl.listObj()">Compare</button>
+										
+									</div>
+									
+								</form>
+									
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+						<alert-message alert="alertMessage"></alert-message>
+						<button type="submit" class="btn btn-info pull-right"
+										ng-click="ctrl.exportObj()">Export XML</button>
+							<h3>Extra Objects</h3>
+							<table class="table m-t table-bordered">
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>Name</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="obj in Extra">
+										<td>{{ obj.type }}</td>
+										<td>{{ obj.name }}</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h3>Missing Objects</h3>
+							<table class="table m-t table-bordered">
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>Name</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="obj in Missing">
+										<td>{{ obj.type }}</td>
+										<td>{{ obj.name }}</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+							<h3>Object Content</h3>
+							<table class="table m-t table-bordered">
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>Name</th>
+										<th>Differences</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="obj in Difference">
+										<td> {{ obj.type }} </td>
+										<td> {{ obj.name }} </td>
+										<td> {{ obj.diff }} </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script
+			src="#{plugins.requestContextPath}/plugin/EnvCom/ui/js/angular.min.js"></script>
+		<script
+			src="#{plugins.requestContextPath}/plugin/EnvCom/ui/js/ui-bootstrap.min.js"></script>
+		<script src="#{plugins.requestContextPath}/plugin/EnvCom/ui/js/app.js"></script>
+
+	</ui:composition>
+
+</body>
+</html>
+
